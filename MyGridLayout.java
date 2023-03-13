@@ -8,29 +8,35 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
 
+import javax.swing.UIManager;
+
 public class MyGridLayout implements ActionListener {
-    public static void main(String[] args) {
+    private List<JButton> buttonList = new ArrayList<>();
+
+    public MyGridLayout() {
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+        } catch (Exception e) {}
 
         JFrame frame = new JFrame();
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new GridLayout(10, 10));
+        frame.setLayout(new GridLayout(50, 50));
 
-        JButton[] buttons = new JButton[100];
-        //ArrayList to store position of individual buttons
-        List<JButton> buttonList = new ArrayList<>();
+        JButton[] buttons = new JButton[2500];
 
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = new JButton();
-            MyGridLayout listener = new MyGridLayout();
-            buttons[i].addActionListener(listener);
+            buttons[i].addActionListener(this);
             buttonList.add(buttons[i]);
             frame.add(buttons[i]);
         }
         
-        // Accessing individual buttons, TEST
-        buttonList.get(0).setBackground(Color.RED);
         frame.setVisible(true);
+    }
+
+    public List<JButton> getButtonList() {
+        return buttonList;
     }
 
     @Override
@@ -39,6 +45,7 @@ public class MyGridLayout implements ActionListener {
         button.setBackground(Color.BLACK);
     }
 }
+
 
 
 
