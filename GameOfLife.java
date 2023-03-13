@@ -33,7 +33,17 @@ public class GameOfLife {
         }
         
         GameLogic gameLogic = new GameLogic(board);
+        JFrame frame2 = new JFrame();
+        JButton Save = new JButton("Save");
+        Save.setBounds(150,1000,1000,500);
+        Save.addActionListener(e ->{Save file = new Save(gameLogic.getBoard());});
+        frame2.add(Save);
+        frame2.setSize(400, 300);
+        frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame2.setVisible(true);
         Timer timer = new Timer(50, gameLogic);
         timer.start();
     }
+    
+    
 }
