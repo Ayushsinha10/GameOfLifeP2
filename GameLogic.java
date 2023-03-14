@@ -78,5 +78,8 @@ public class GameLogic implements ActionListener {
         }
         return count;
     }
+    public JButton[][] getBoard(){
+        return this.board;
+    }
 }
 
