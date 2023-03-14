@@ -20,9 +20,9 @@ public class Save{
                     
                     for (int indexY = 0; indexY < board[0].length; indexY++) {
                         if (board[indexX][indexY].getBackground() == Color.BLACK) {
-                            objectStream.write(".");
-                        } else {
                             objectStream.write("o");
+                        } else {
+                            objectStream.write(".");
                         }
                     }
                     objectStream.write('\n');
