@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.GridLayout; 
 import javax.swing.Timer;
+import java.awt.*;
 
 // THIS IS WHERE MAIN GAME IS LOADED, CLASSPATH to start game: java GameOfLife
 public class GameOfLife {
@@ -26,12 +27,12 @@ public class GameOfLife {
 
         JButton[][] board = gameBoard.getBoard();
         JButton Load = new JButton("Load");
-        Load.setBounds(16,100,100,50);
+        Load.setBounds(150,100,100,50);
         Load.addActionListener(e ->{Load filed = new Load(gameBoard.getBoard());
             GameLogic gameLogic = new GameLogic(filed.getBoard());
             Timer timer = new Timer(50, gameLogic);
             timer.start();});
-        
+        Load.setPreferredSize(new Dimension(40,40));
         for (int counter = 0; counter < board.length; counter++) {
             int row = counter / 50;
             int col = counter % 50;
@@ -47,9 +48,14 @@ public class GameOfLife {
         Save.setBounds(15,100,100,50);
        
         Save.addActionListener(e ->{Save file = new Save(gameLogic.getBoard());});
-        frame2.add(Save);
         frame2.add(Load);
+        frame2.add(Save);
+        
+       
         frame2.setSize(400, 300);
+        
+
+        frame2.setLayout(null);
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame2.setVisible(true);
         Timer timer = new Timer(50, gameLogic);
