@@ -25,7 +25,13 @@ public class GameOfLife {
         gameBoard.setInitialBoardState();
 
         JButton[][] board = gameBoard.getBoard();
-
+        JButton Load = new JButton("Load");
+        Load.setBounds(16,100,100,50);
+        Load.addActionListener(e ->{Load filed = new Load(gameBoard.getBoard());
+            GameLogic gameLogic = new GameLogic(filed.getBoard());
+            Timer timer = new Timer(50, gameLogic);
+            timer.start();});
+        
         for (int counter = 0; counter < board.length; counter++) {
             int row = counter / 50;
             int col = counter % 50;
@@ -33,16 +39,22 @@ public class GameOfLife {
         }
         
         GameLogic gameLogic = new GameLogic(board);
+        
         JFrame frame2 = new JFrame();
         JButton Save = new JButton("Save");
-        Save.setBounds(150,1000,1000,500);
+       
+       
+        Save.setBounds(15,100,100,50);
+       
         Save.addActionListener(e ->{Save file = new Save(gameLogic.getBoard());});
         frame2.add(Save);
+        frame2.add(Load);
         frame2.setSize(400, 300);
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame2.setVisible(true);
         Timer timer = new Timer(50, gameLogic);
         timer.start();
+      
     }
     
     

@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
+import javax.swing.JPanel;
 
 import javax.swing.UIManager;
 
@@ -19,6 +20,7 @@ public class MyGridLayout implements ActionListener {
         } catch (Exception e) {}
 
         JFrame frame = new JFrame();
+        
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridLayout(50, 50));
@@ -33,6 +35,9 @@ public class MyGridLayout implements ActionListener {
         }
         
         frame.setVisible(true);
+        
+        
+       
     }
 
     public List<JButton> getButtonList() {
