@@ -42,7 +42,7 @@ public class GameBoard {
     
     
     }
-    public void setInitialBoardState() {
+    public void setRandomState() {
         Random randomBoardState = new Random();
         for (int x = 0; x < board.length; x++) {
             for (int y = 0; y < board[0].length; y++) {
@@ -51,6 +51,15 @@ public class GameBoard {
                 } else {
                     board[x][y].setBackground(Color.WHITE);
                 }
+            }
+        }
+        
+    }
+    public void setInitialBoardState() {
+    
+        for (int x = 0; x < board.length; x++) {
+            for (int y = 0; y < board[0].length; y++) {
+               board[x][y].setBackground(Color.WHITE);
             }
         }
     }

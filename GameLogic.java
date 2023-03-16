@@ -20,7 +20,7 @@ public class GameLogic implements ActionListener {
         updateBoardState();
     }
 
-    private void updateBoardState() {
+    public void updateBoardState() {
         boolean[][] nextBoard = new boolean[rows][columns];
         int x = 2;
         int y = 3;
