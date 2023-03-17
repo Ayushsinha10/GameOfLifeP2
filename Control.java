@@ -65,6 +65,7 @@ public class Control{
         Step.addActionListener(e ->{gamelog.updateBoardState();
         time.addActionListener(gamelog);});
         Normal.addActionListener(e ->{time.setDelay(50);});
+        Exit.addActionListener(e ->{System.exit(0);});
         Load.setPreferredSize(new Dimension(40,40));
         frame2.add(Normal);
         frame2.add(Step);
