@@ -65,19 +65,22 @@ public class GameLogic implements ActionListener {
         }
     }
     
-    private int countAliveNeighbors(int x, int y) {
-        int count = 0;
-        for (int i = x - 1; i <= x + 1; i++) {
-            for (int j = y - 1; j <= y + 1; j++) {
-                if (i >= 0 && i < rows && j >= 0 && j < columns) {
-                    if (board[i][j].getBackground() == Color.BLACK && !(i == x && j == y)) {
-                        count++;
-                    }
+    private int countAliveNeighbors(int rows, int columns) {
+        int counter = 0;
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+
+                int neighborRow = (rows + x + rows) % rows;
+                int neighborCol = (columns + y + columns) % columns;
+                
+                if (board[neighborRow][neighborCol].getBackground() == Color.BLACK && !(x == 0 && y == 0)) {
+                    counter++;
                 }
             }
         }
-        return count;
+        return counter;
     }
+
     public JButton[][] getBoard(){
         return this.board;
     }

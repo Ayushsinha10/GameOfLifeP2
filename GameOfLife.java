@@ -18,21 +18,23 @@ public class GameOfLife {
         GameBoard gameBoard = new GameBoard(50, 50);
         List<JButton> buttonList = gridLayout.getButtonList();
                 
-        for (int counter = 0; counter < buttonList.size(); counter++) {
-            int row = counter / 50;
-            int column = counter % 50;
-            gameBoard.setButton(row, column, buttonList.get(counter));
-        }
+        int index = 0;
+        for (int row = 0; row < 50; row++) {
+        for (int column = 0; column < 50; column++) {
+        gameBoard.setButton(row, column, buttonList.get(index));
+        index++;
+    }
+}
         
         gameBoard.setInitialBoardState();
 
         JButton[][] board = gameBoard.getBoard();
-        
-        for (int counter = 0; counter < board.length; counter++) {
-            int row = counter / 50;
-            int col = counter % 50;
-            board[row][col].setBackground(Color.RED);
+        for (int row = 0; row < 50; row++) {
+        for (int column = 0; column < 50; column++) {
+            board[row][column].setBackground(Color.white);
         }
+    }
+
         
         GameLogic gameLogic = new GameLogic(board);
         Control controls = new Control(gameLogic, board, gameBoard);
