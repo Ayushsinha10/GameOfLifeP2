@@ -46,7 +46,7 @@ public class Load {
         
         }
         catch(FileNotFoundException e){
-            e.printStackTrace();
+            System.out.println("No Save Avaliable!");
         }
         
         
