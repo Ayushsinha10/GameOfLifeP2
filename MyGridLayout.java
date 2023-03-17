@@ -47,7 +47,13 @@ public class MyGridLayout implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton button = (JButton) e.getSource();
-        button.setBackground(Color.BLACK);
+        if (button.getBackground().equals(Color.WHITE)){
+            button.setBackground(Color.BLACK);
+
+        }
+        else{
+            button.setBackground(Color.WHITE);
+        }
     }
 }
 
