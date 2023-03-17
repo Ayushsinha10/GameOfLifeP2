@@ -64,21 +64,19 @@ public class GameLogic implements ActionListener {
             }
         }
     }
-    
-    private int countAliveNeighbors(int rows, int columns) {
+
+    private int countAliveNeighbors(int row, int column) {
         int counter = 0;
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
-
-                int neighborRow = (rows + x + rows) % rows;
-                int neighborCol = (columns + y + columns) % columns;
-                
+                int neighborRow = (row + x + rows) % rows;
+                int neighborCol = (column + y + columns) % columns;
                 if (board[neighborRow][neighborCol].getBackground() == Color.BLACK && !(x == 0 && y == 0)) {
                     counter++;
                 }
             }
         }
-        return counter;
+        return counter; 
     }
 
     public JButton[][] getBoard(){
