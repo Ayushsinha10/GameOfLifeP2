@@ -2,7 +2,11 @@ Welcome to Game of Life!
 
 To compile Game Of Life, first type the compile command into the terminal:
 javac *.java
+
 This will compile the GameOfLife.java file and the two windows should appear: Gameboard, Controls
+Run the command
+java GameOfLife.java 
+This will run the program as intended.
 
 There are 11 controls in the Control Panel:
 
